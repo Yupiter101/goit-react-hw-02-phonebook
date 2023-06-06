@@ -1,5 +1,6 @@
 
 import { ContactItem } from "components/ContactItem/ContactItem";
+import PropTypes from 'prop-types';
 import "./ContactList.css";
 
 
@@ -14,3 +15,13 @@ export function ContactList ({onFilterContacts, onDelete}) {
   )
 }
 
+
+ContactList.propTypes = {
+  onDelete: PropTypes.func.isRequired,
+  onFilterContacts: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      }).isRequired,
+    ).isRequired,
+}

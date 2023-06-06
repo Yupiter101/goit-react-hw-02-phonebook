@@ -1,4 +1,5 @@
 
+import PropTypes from 'prop-types';
 import "./ContactItem.css";
 
 
@@ -16,3 +17,13 @@ export function ContactItem({contactItem, onDeleteItem}) {
   )
 }
 
+
+ContactItem.propTypes = {
+  onDeleteItem: PropTypes.func.isRequired,
+  contactItem: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired,
+  
+}

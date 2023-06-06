@@ -1,5 +1,7 @@
 
+import PropTypes from 'prop-types';
 import "./Filter.css";
+
 
 
 export function Filter({searchVal, onSearchSet}) {
@@ -18,3 +20,7 @@ export function Filter({searchVal, onSearchSet}) {
     )
 }
 
+Filter.propTypes = {
+  searchVal: PropTypes.string.isRequired,
+  onSearchSet: PropTypes.func.isRequired
+}
