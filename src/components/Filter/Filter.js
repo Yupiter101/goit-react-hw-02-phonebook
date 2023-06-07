@@ -1,15 +1,15 @@
 
 import PropTypes from 'prop-types';
-import "./Filter.css";
+import css from "./Filter.module.css";
 
 
 
 export function Filter({searchVal, onSearchSet}) {
 
     return (
-      <label className="FilterLabel">Find contacs by name
+      <label className={css.FilterLabel}>Find contacs by name
         <input
-          className="FilterInput"
+          className={css.FilterInput}
           type="text"
           name="search"
           title="find contacs by name"

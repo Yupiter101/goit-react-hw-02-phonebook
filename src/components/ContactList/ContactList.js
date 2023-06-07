@@ -1,13 +1,13 @@
 
 import { ContactItem } from "components/ContactItem/ContactItem";
 import PropTypes from 'prop-types';
-import "./ContactList.css";
+import css from "./ContactList.module.css";
 
 
 export function ContactList ({onFilterContacts, onDelete}) {
  
   return(
-    <ul className="ContactList">
+    <ul className={css.ContactList}>
       {onFilterContacts.map(contact=> {
         return <ContactItem key={contact.id} contactItem={contact} onDeleteItem={onDelete}/>
       })}

@@ -1,12 +1,12 @@
 
 import PropTypes from 'prop-types';
-import "./ContactItem.css";
+import css from "./ContactItem.module.css";
 
 
 export function ContactItem({contactItem, onDeleteItem}) {
   const {id, name, number} = contactItem;
   return (
-    <li className="ContactItem">
+    <li className={css.ContactItem}>
         {name}: 
         <span>{number}</span>
         <button 

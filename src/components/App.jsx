@@ -46,13 +46,29 @@ export class App extends React.Component {
 
   addContact = (name, number) => {
     const id = nanoid();
-    const newContact = {id, name, number};  
-    this.setState(prevState => {
-      return {
-        contacts: [...prevState.contacts, newContact],
+    const newContact = {id, name, number}; 
+    let isSameName = false;
+    
+    this.state.contacts.map(contac => {
+      if(contac.name.toLowerCase() === name.toLowerCase()) {
+        isSameName = true;
+        return isSameName;
       }
+      return isSameName;
     });
+    
+    if(isSameName) {
+      alert(`${name} is already in contacs`);
+    }
+    else {
+      this.setState(prevState => {
+        return {
+          contacts: [...prevState.contacts, newContact],
+        }
+      });
+    }
   }
+
 
 
   SearchResultContacts = () => {
@@ -76,8 +92,8 @@ export class App extends React.Component {
       <div className="Container">
 
         <h1>Phonebook</h1>
-        <ContactForm onAddContact={this.addContact} onCheckName={this.checkName}/>
-        
+        <ContactForm onAddContact={this.addContact}/>
+
         <h2>Contacts</h2>
         <Filter searchVal={this.state.filter} onSearchSet={this.handleSearchSet} />
         
